@@ -13,7 +13,7 @@ import SwiftyJSON
 
 let apiSecrets = getSecrets()
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.textField.delegate = self
     }
 
     @IBAction func predictPressed(_ sender: Any) {
@@ -89,6 +90,12 @@ class ViewController: UIViewController {
                    } else {
                        self.sentimentLabel.text = "🤮"
                    }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() 
+        //fetchTweets()
+        return true
     }
 }
 

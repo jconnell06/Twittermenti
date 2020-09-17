@@ -8,5 +8,6 @@ target 'Twittermenti' do
   # Pods for Twittermenti
 
 pod 'SwiftyJSON'
+pod 'IQKeyboardManagerSwift'
 
 end
